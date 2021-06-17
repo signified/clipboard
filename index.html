@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="clipboard.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="clipboard.css">
+    <title>Clipboard</title>
+  </head>
+  <body>
+    <header class="bg-light py-5 mb-5">
+      <div class="container">
+        <h1 class="display-1 mb-4"><i class="bi-clipboard-check"></i> Clipboard</h1>
+        <p class="lead mb-4">Super simple, completely configurable, copy to clipboard.</p>
+        <a class="btn btn-secondary" href="https://github.com/signified/clipboard" target="_blank"><i class="bi-github"></i> View on GitHub</a>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <h2 class="display-6">Basic usage</h2>
+        <p>Add a clipboard button to every with default styling.</p>
+        <pre class="mb-5 p-3 bg-light border rounded" id="example-1">clipboard(&#39;#example-1&#39;);</pre>
+        <h2 class="display-6">Advanced usage</h2>
+        <p>Add a clipboard button using <a href="https://getbootstrap.com/">Bootstrap</a> for styling, <a href="https://icons.getbootstrap.com/">Bootstrap Icons</a> for button content and <a href="https://getbootstrap.com/docs/5.0/components/tooltips/">Bootstrap Tooltips</a>.</p>
+        <pre class="mb-5 p-3 bg-light border rounded" id="example-2">clipboard(&#39;#example-2&#39;, {
+  template: &#39;&lt;div class=&quot;position-relative float-end w-100 d-none d-md-block&quot;&gt;&lt;button class=&quot;position-absolute top-0 end-0 mt-3 me-3 d-block btn btn-sm btn-outline-primary&quot; data-bs-placement=&quot;left&quot; title=&quot;Copy to clipboard&quot; type=&quot;button&quot;&gt;&lt;i class=&quot;bi-clipboard&quot;&gt;&lt;/i&gt;&lt;/button&gt;&lt;/div&gt;&#39;
+}, function(clipboard, element) {
+  let button = clipboard.querySelector(&#39;button&#39;);
+  let tooltip = new bootstrap.Tooltip(button);
+  button.addEventListener(&#39;mouseover&#39;, function() {
+    tooltip.show();
+  });
+  button.addEventListener(&#39;click&#39;, function() {
+    button.setAttribute(&#39;data-bs-original-title&#39;, &#39;Copied!&#39;);
+    button.innerHTML = &#39;&lt;i class=&quot;bi-check-lg&quot;&gt;&lt;/i&gt;&#39;;
+  });
+  button.addEventListener(&#39;mouseleave&#39;, function() {
+    tooltip.hide();
+    button.setAttribute(&#39;data-bs-original-title&#39;, &#39;Copy to clipboard&#39;);
+    button.innerHTML = &#39;&lt;i class=&quot;bi-clipboard&quot;&gt;&lt;/i&gt;&#39;;
+  });
+});</pre>
+      </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="clipboard.js"></script>
+    <script>
+      clipboard('#example-1');
+
+      clipboard('#example-2', {
+        template: '<div class="position-relative float-end w-100 d-none d-md-block"><button class="position-absolute top-0 end-0 mt-3 me-3 d-block btn btn-sm btn-outline-primary" data-bs-placement="left" title="Copy to clipboard" type="button"><i class="bi-clipboard"></i></button></div>'
+      }, function(clipboard, element) {
+        let button = clipboard.querySelector('button');
+        let tooltip = new bootstrap.Tooltip(button);
+        button.addEventListener('mouseover', function() {
+          tooltip.show();
+        });
+        button.addEventListener('click', function() {
+          button.setAttribute('data-bs-original-title', 'Copied!');
+          button.innerHTML = '<i class="bi-check-lg"></i>';
+        });
+        button.addEventListener('mouseleave', function() {
+          tooltip.hide();
+          button.setAttribute('data-bs-original-title', 'Copy to clipboard');
+          button.innerHTML = '<i class="bi-clipboard"></i>';
+        });
+      });
+    </script>
+  </body>
+</html>
