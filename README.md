@@ -32,17 +32,19 @@ or via jsDeliver:
 
 ## Usage
 
+Usage examples can be found at https://signified.github.io/clipboard.
+
 ```javascript
 clipboard(selectors, options, callback(clipboard, element));
 ```
 
-### `selectors` (required)
+### `selectors` (string | required)
 
-A DOMString containing one or more selectors to match against.
+A string containing one or more selectors to match against. For example, `'pre'` will match every `<pre>` element.
 
-### `options` (optional)
+### `options` (object | optional)
 
-An object representing configuration options.
+An object representing optional configuration options.
 
 ```javascript
 {
@@ -53,24 +55,14 @@ An object representing configuration options.
   // 'beforeend': Inside the `element`, after its last child.
   // 'afterend': After the `element`.
   position: 'beforebegin'
-  // The HTML to use when creating the clipboard.
+  // The HTML to use when creating the `clipboard`.
   template: '<div class="clipboard"><button class="clipboard-button" type="button">Copy</button></div>'
 }
 ```
 
-### `callback` (optional)
+### `callback` (function | optional)
 
-A callback function with parameters representing the `clipboard` and the selected `element` for each `selectors`.
-
-### Examples
-
-See the below examples in action here: https://signified.github.io/clipboard.
-
-Add a clipboard button to every `<pre>...</pre>` with default styling:
-
-```javascript
-clipboard('pre');
-```
+A callback function with parameters representing, for each `selectors`, the `clipboard` and the selected `element`.
 
 ## Contributing
 
