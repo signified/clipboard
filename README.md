@@ -13,7 +13,7 @@ Super simple, completely configurable, copy to clipboard.
 or via jsDeliver:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/signified/clipboard/clipboard.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/signified/clipboard@1.0.0/clipboard.min.js"></script>
 ```
 
 2. Add the stylesheet in the `<head>` (optional)
@@ -25,7 +25,7 @@ or via jsDeliver:
 or via jsDeliver:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/signified/clipboard/clipboard.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/signified/clipboard@1.0.0/clipboard.min.css">
 ```
 
 **Note:** The supplied stylesheet applies default positioning and basic styling rules. Feel free to use it as a starting point or, if you're using a framework like Bootstrap or Tailwind CSS, make use of the `options` to take full advantage of the component and utility classes these frameworks provide.
@@ -66,7 +66,7 @@ A callback function with parameters representing, for each `selectors`, the `cli
 
 ## Contributing
 
-See [Contributing](https://github.com/signified/.github/blob/master/CONTRIBUTING.md).
+See [Contributing](https://github.com/signified/.github/blob/main/CONTRIBUTING.md).
 
 ## Credits
 
