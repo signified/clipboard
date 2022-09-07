@@ -6,27 +6,27 @@ Super simple, completely configurable, copy to clipboard.
 
 1. Add the JavaScript before the `</body>` (required)
 
-```html
-<script src="clipboard.js"></script>
-```
+    ```html
+    <script src="clipboard.js"></script>
+    ```
 
-or via jsDeliver:
+    or via jsDeliver:
 
-```html
-<script src="https://cdn.jsdelivr.net/gh/signified/clipboard@1.0.0/clipboard.min.js"></script>
-```
+    ```html
+    <script src="https://cdn.jsdelivr.net/gh/signified/clipboard@1.0.0/clipboard.min.js"></script>
+    ```
 
-2. Add the stylesheet in the `<head>` (optional)
+1. Add the stylesheet in the `<head>` (optional)
 
-```html
-<link rel="stylesheet" href="clipboard.css">
-```
+    ```html
+    <link rel="stylesheet" href="clipboard.css">
+    ```
 
-or via jsDeliver:
+    or via jsDeliver:
 
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/signified/clipboard@1.0.0/clipboard.min.css">
-```
+    ```html
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/signified/clipboard@1.0.0/clipboard.min.css">
+    ```
 
 **Note:** The supplied stylesheet applies default positioning and basic styling rules. Feel free to use it as a starting point or, if you're using a framework like Bootstrap or Tailwind CSS, make use of the `options` to take full advantage of the component and utility classes these frameworks provide.
 
