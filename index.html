@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="clipboard.svg">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="clipboard.css">
     <title>Clipboard</title>
@@ -30,17 +30,21 @@
   let button = clipboard.querySelector(&#39;button&#39;);
   let tooltip = new bootstrap.Tooltip(button);
   button.addEventListener(&#39;click&#39;, function() {
-    tooltip.setContent({&#39;.tooltip-inner&#39;: &#39;Copied!&#39;});
+    tooltip.setContent({
+      &#39;.tooltip-inner&#39;: &#39;Copied!&#39;
+    });
     button.innerHTML = &#39;&lt;i class=&quot;bi-check-lg&quot;&gt;&lt;/i&gt;&#39;;
   });
   button.addEventListener(&#39;mouseleave&#39;, function() {
-    tooltip.setContent({&#39;.tooltip-inner&#39;: &#39;Copy to clipboard&#39;});
+    tooltip.setContent({
+      &#39;.tooltip-inner&#39;: &#39;Copy to clipboard&#39;
+    });
     button.innerHTML = &#39;&lt;i class=&quot;bi-clipboard&quot;&gt;&lt;/i&gt;&#39;;
   });
 });</pre>
       </div>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="clipboard.js"></script>
     <script>
       clipboard('#example-1');
@@ -51,11 +55,15 @@
         let button = clipboard.querySelector('button');
         let tooltip = new bootstrap.Tooltip(button);
         button.addEventListener('click', function() {
-          tooltip.setContent({'.tooltip-inner': 'Copied!'});
+          tooltip.setContent({
+            '.tooltip-inner': 'Copied!'
+          });
           button.innerHTML = '<i class="bi-check-lg"></i>';
         });
         button.addEventListener('mouseleave', function() {
-          tooltip.setContent({'.tooltip-inner': 'Copy to clipboard'});
+          tooltip.setContent({
+            '.tooltip-inner': 'Copy to clipboard'
+          });
           button.innerHTML = '<i class="bi-clipboard"></i>';
         });
       });
