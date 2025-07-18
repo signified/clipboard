@@ -1,38 +1,43 @@
-function clipboard(selectors, options, callback) {
+function clipboard(selectors, options = {}, callback) {
 
-  let defaultOptions = {
+  const defaultOptions = {
     position: 'beforebegin',
     template: '<div class="clipboard"><button class="clipboard-button" type="button">Copy</button></div>'
   };
 
-  options = {
-    ...defaultOptions,
-    ...options
-  };
+  const config = { ...defaultOptions, ...options };
 
-  document.querySelectorAll(selectors).forEach(function (element) {
+  document.querySelectorAll(selectors).forEach((element) => {
 
-    let template = document.createElement('template');
-    template.insertAdjacentHTML('afterbegin', options.template);
-    let clipboard = template.firstChild;
+    const container = document.createElement('div');
+    container.insertAdjacentHTML('afterbegin', config.template);
 
-    element.insertAdjacentElement(options.position, clipboard);
+    const template = container.firstChild;
 
-    clipboard.addEventListener('click', function() {
-      let text = element.innerText;
-      if (text.length == 0) {
+    element.insertAdjacentElement(config.position, template);
+
+    template.addEventListener('click', async () => {
+
+      let text = '';
+
+      if (element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement) {
         text = element.value;
+      } else {
+        text = element.innerText.trim();
       }
-      let textarea = document.createElement('textarea');
-      document.body.appendChild(textarea);
-      textarea.value = text;
-      textarea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textarea);
+
+      if (!text) return;
+
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch (error) {
+        console.error('Copy to clipboard failed:', error);
+      }
+
     });
 
-    if (typeof callback == 'function') {
-      callback(clipboard, element);
+    if (typeof callback === 'function') {
+      callback(template, element);
     }
 
   });
