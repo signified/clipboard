@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="clipboard.svg">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="clipboard.css">
     <title>Clipboard</title>
   </head>
@@ -20,14 +20,14 @@
     <main>
       <div class="container">
         <h2 class="display-6">Basic usage</h2>
-        <p>The below example adds a clipboard button with default styling provided by the default stylesheet (<a href="https://github.com/signified/clipboard/blob/main/clipboard.css" target="_blank">clipboard.css</a>).</p>
+        <p>The below example adds a copy to clipboard button with default styling provided by the default stylesheet (<a href="https://github.com/signified/clipboard/blob/main/clipboard.css" target="_blank">clipboard.css</a>).</p>
         <pre class="mb-5 p-4 bg-light border rounded" id="example-1">clipboard(&#39;#example-1&#39;);</pre>
         <h2 class="display-6">Advanced usage</h2>
         <p>The below example makes use of the <code>options</code> parameter to add a custom <code>template</code> which uses <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> for styling and <a href="https://icons.getbootstrap.com/" target="_blank">Bootstrap Icons</a> for button content. It also makes use of the <code>callback</code> parameter to add a callback function with events that add <a href="https://getbootstrap.com/docs/5.0/components/tooltips/" target="_blank">Bootstrap Tooltips</a> and change the tooltip text and button icon when the button is clicked.</p>
         <pre class="mb-5 p-4 bg-light border rounded" id="example-2">clipboard(&#39;#example-2&#39;, {
   template: &#39;&lt;div class=&quot;position-relative float-end w-100 d-none d-md-block&quot;&gt;&lt;button class=&quot;position-absolute top-0 end-0 mt-3 me-3 d-block btn btn-sm btn-outline-primary&quot; type=&quot;button&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-placement=&quot;left&quot; data-bs-title=&quot;Copy to clipboard&quot;&gt;&lt;i class=&quot;bi-clipboard&quot;&gt;&lt;/i&gt;&lt;/button&gt;&lt;/div&gt;&#39;
-}, function(clipboard, element) {
-  let button = clipboard.querySelector(&#39;button&#39;);
+}, function(template, element) {
+  let button = template.querySelector(&#39;button&#39;);
   let tooltip = new bootstrap.Tooltip(button);
   button.addEventListener(&#39;click&#39;, function() {
     tooltip.setContent({
@@ -44,15 +44,15 @@
 });</pre>
       </div>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
     <script src="clipboard.js"></script>
     <script>
       clipboard('#example-1');
 
       clipboard('#example-2', {
         template: '<div class="position-relative float-end w-100 d-none d-md-block"><button class="position-absolute top-0 end-0 mt-3 me-3 d-block btn btn-sm btn-outline-primary" type="button" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Copy to clipboard"><i class="bi-clipboard"></i></button></div>'
-      }, function(clipboard, element) {
-        let button = clipboard.querySelector('button');
+      }, function(template, element) {
+        let button = template.querySelector('button');
         let tooltip = new bootstrap.Tooltip(button);
         button.addEventListener('click', function() {
           tooltip.setContent({
