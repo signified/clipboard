@@ -13,7 +13,7 @@ Super simple, completely configurable, copy to clipboard.
     or via jsDeliver:
 
     ```html
-    <script src="https://cdn.jsdelivr.net/gh/signified/clipboard@1.0.0/clipboard.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/signified/clipboard@1.0.1/clipboard.min.js"></script>
     ```
 
 1. Add the stylesheet in the `<head>` (optional)
@@ -25,7 +25,7 @@ Super simple, completely configurable, copy to clipboard.
     or via jsDeliver:
 
     ```html
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/signified/clipboard@1.0.0/clipboard.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/signified/clipboard@1.0.1/clipboard.min.css">
     ```
 
 **Note:** The supplied stylesheet applies default positioning and basic styling rules. Feel free to use it as a starting point or, if you're using a framework like Bootstrap or Tailwind CSS, make use of the `options` to take full advantage of the component and utility classes these frameworks provide.
@@ -35,7 +35,7 @@ Super simple, completely configurable, copy to clipboard.
 Usage examples can be found at https://signified.github.io/clipboard.
 
 ```javascript
-clipboard(selectors, options, callback(clipboard, element));
+clipboard(selectors, options, callback(template, element));
 ```
 
 ### `selectors` (string | required)
@@ -55,14 +55,14 @@ An object representing optional configuration options.
   // 'beforeend': Inside the `element`, after its last child.
   // 'afterend': After the `element`.
   position: 'beforebegin'
-  // The HTML to use when creating the `clipboard`.
+  // The HTML to use when creating the `template`.
   template: '<div class="clipboard"><button class="clipboard-button" type="button">Copy</button></div>'
 }
 ```
 
 ### `callback` (function | optional)
 
-A callback function with parameters representing, for each `selectors`, the `clipboard` and the selected `element`.
+A callback function with parameters representing, for each `selectors`, the `template` and the selected `element`.
 
 ## Contributing
 
